@@ -9,7 +9,7 @@ export const getProjects = () => (dispatch) => {
 	// console.log("hi")
 	dispatch({ type: GET_REQUEST });
 	axios
-		.get("http://localhost:8080/notes")
+		.get("https://assignment-full-stackj-crud-app.onrender.com/notes")
 		.then((data) => {
 			dispatch({ type: GET_REQUEST_SUCCESS, payload: data.data });
 			// console.log(data.data);
@@ -21,15 +21,25 @@ export const getProjects = () => (dispatch) => {
 };
 
 export const postProjects = (data) => () => {
-	axios.post("http://localhost:8080/notes/create", data).then((dat) => {
-		console.log(dat.data);
-	});
+	axios
+		.post(
+			"https://assignment-full-stackj-crud-app.onrender.com/notes/create",
+			data,
+		)
+		.then((dat) => {
+			console.log(dat.data);
+		});
 };
 export const updateProjects = (id, data) => (dispatch) => {
-	console.log(id)
-	console.log(data)
-	axios.patch(`http://localhost:8080/notes/update/${id}`, data);
+	console.log(id);
+	console.log(data);
+	axios.patch(
+		`https://assignment-full-stackj-crud-app.onrender.com/notes/update/${id}`,
+		data,
+	);
 };
 export const deleteProjects = (id) => (dispatch) => {
-	axios.delete(`http://localhost:8080/notes/delete/${id}`);
+	axios.delete(
+		`https://assignment-full-stackj-crud-app.onrender.com/notes/delete/${id}`,
+	);
 };
